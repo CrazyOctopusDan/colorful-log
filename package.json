@@ -1,7 +1,7 @@
 {
     "name": "@tms/co-colorful-log",
     "private": false,
-    "version": "0.0.3",
+    "version": "0.0.4",
     "types": "./typings/index.d.ts",
     "typings": "./dist/typings/index.d.ts",
     "type": "module",
@@ -9,7 +9,7 @@
     "module": "es/index.js",
     "scripts": {
         "dev": "vite",
-        "build": "tsc --declaration --emitDeclarationOnly --declarationDir dist/ --module commonjs --target es6 --outDir dist/ --lib es6,dom && vite build && cp index.d.ts lib && cp index.d.ts es",
+        "build": "tsc --declaration --emitDeclarationOnly --declarationDir dist/ --module commonjs --target es6 --outDir dist/ --lib es6,dom && vite build",
         "preview": "vite preview",
         "lint": "eslint . --ext '.js,.ts' --fix",
         "precommit": "lint-staged"
@@ -46,6 +46,7 @@
     "files": [
         "lib",
         "es",
+        "index.d.ts",
         "README",
         "LICENSE"
     ],
