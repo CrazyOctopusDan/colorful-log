@@ -1,8 +1,10 @@
 {
     "name": "colorful-log",
-    "private": true,
-    "version": "0.0.0",
+    "private": false,
+    "version": "0.0.1",
     "type": "module",
+    "main": "lib/index.js",
+    "module": "es/index.js",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
