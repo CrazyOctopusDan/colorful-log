@@ -1,4 +1,4 @@
-import { VUE_DEEP_CYAN, VUE_BLUE_GRAY } from '../style';
+import { VUE_DEEP_CYAN, VUE_BLUE_GRAY } from '../styles';
 
 interface IColorfulLogConfig {
     logBy?: string;
