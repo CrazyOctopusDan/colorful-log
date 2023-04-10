@@ -1,4 +1,5 @@
 import { VUE_DEEP_CYAN, VUE_BLUE_GRAY } from '../styles';
+// Type定义
 import { IColorfulLogConfig, IBlockLogClass } from '../types'
   
   const colorMap = new Map([

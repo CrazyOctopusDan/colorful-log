@@ -1,9 +1,3 @@
-var __defProp = Object.defineProperty;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __publicField = (obj, key, value) => {
-  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-  return value;
-};
 import { VUE_DEEP_CYAN, VUE_BLUE_GRAY } from "../styles/index.js";
 const colorMap = /* @__PURE__ */ new Map([
   ["yellow", "#FFC107"],
@@ -39,15 +33,8 @@ const materialColorfulLog = ({ logName = "", type = "blue", isLinearGradient = f
 };
 class ColorfulLogClass {
   constructor(config) {
-    __publicField(this, "logBy");
-    __publicField(this, "logName");
-    __publicField(this, "preBlockColor");
-    __publicField(this, "nextBlockColor");
-    __publicField(this, "padding");
-    __publicField(this, "borderRadius");
-    __publicField(this, "fontColor");
-    __publicField(this, "logTemplate", (logBy = "", logName = "") => `%c log-by-${logBy} %c ${logName} `);
-    __publicField(this, "log", (...data) => {
+    this.logTemplate = (logBy = "", logName = "") => `%c log-by-${logBy} %c ${logName} `;
+    this.log = (...data) => {
       const firstSquareStyle = `background: ${this.preBlockColor}; padding: ${this.padding}px; border-radius: ${this.borderRadius}px 0 0 ${this.borderRadius}px;  color: ${this.fontColor}`;
       const secondBlockStyle = `background: ${this.nextBlockColor}; padding: ${this.padding}px; border-radius: 0 ${this.borderRadius}px ${this.borderRadius}px 0;  color: ${this.fontColor}`;
       console.log(
@@ -56,7 +43,7 @@ class ColorfulLogClass {
         secondBlockStyle,
         ...data
       );
-    });
+    };
     this.logBy = config.logBy || "";
     this.logName = config.logName || "";
     this.preBlockColor = config.preBlockColor || VUE_DEEP_CYAN;
