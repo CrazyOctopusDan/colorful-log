@@ -1,6 +1,6 @@
 {
     "name": "@tms/co-colorful-log",
-    "private": true,
+    "private": false,
     "version": "0.0.1",
     "type": "module",
     "main": "lib/index.js",
