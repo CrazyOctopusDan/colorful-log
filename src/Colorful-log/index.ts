@@ -1,25 +1,5 @@
 import { VUE_DEEP_CYAN, VUE_BLUE_GRAY } from '../styles';
-
-interface IColorfulLogConfig {
-    logBy?: string;
-    logName?: string;
-    preBlockColor?: string;
-    nextBlockColor?: string;
-    padding?: number;
-    borderRadius?: number;
-    fontColor?: string;
-  }
-  
-  interface IBlockLogClass {
-    logBy: string;
-    logName: string;
-    preBlockColor: string;
-    nextBlockColor: string;
-    padding: number;
-    borderRadius: number;
-    fontColor: string;
-    logTemplate?: (logBy: string, logName: string) => string;
-  }
+import { IColorfulLogConfig, IBlockLogClass } from '../types'
   
   const colorMap = new Map([
     ['yellow', '#FFC107'],
