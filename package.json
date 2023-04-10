@@ -1,5 +1,5 @@
 {
-    "name": "@tms/co-colorful-log",
+    "name": "colorful-log",
     "private": false,
     "version": "0.0.1",
     "type": "module",
@@ -53,6 +53,6 @@
     ],
     "license": "MIT",
     "publishConfig": {
-        "registry": "http://npm.taimei.com/"
+        "registry": "https://registry.npmjs.org/"
     }
 }
