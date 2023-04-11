@@ -32,8 +32,6 @@ import { IColorfulLogConfig, IBlockLogClass, IBasicConfig, ICoBasicConfig } from
       /**
        * 如果没有找到名字，可以自己从session中寻找
        */
-      debugger
-      console.log('kankanLogBy', sessionStorage.getItem('sso_loginInfo'), (JSON.parse((sessionStorage.getItem('sso_loginInfo') || '')) || {}))
       return ((JSON.parse((sessionStorage.getItem('sso_loginInfo') || '')) || {}).userName || '我')
     }
 
@@ -72,14 +70,14 @@ import { IColorfulLogConfig, IBlockLogClass, IBasicConfig, ICoBasicConfig } from
       console[usage](
         `%c log-by-${_logBy} %c${logName}`,
         `background: ${VUE_DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`, 
-        `background-image: ${gradientColorMap.get(color)}; padding: 6px 12px; border-radius: 2px; font-size: 14px; color: #fff; text-transform: uppercase; font-weight: 600;`, 
+        `background-image: ${gradientColorMap.get(color)}; padding: 6px 12px; border-radius: 2px; font-size: 13px; color: #fff; text-transform: uppercase; font-weight: 600;`, 
         ...data
       );
     } else {
       console[usage](
         `%c log-by-${_logBy} %c${logName}`,
         `background: ${VUE_DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`, 
-        `background-color: ${colorMap.get(color)}; padding: 6px 12px; border-radius: 2px; font-size: 14px; color: #fff; text-transform: uppercase; font-weight: 600;`, 
+        `background-color: ${colorMap.get(color)}; padding: 6px 12px; border-radius: 2px; font-size: 13px; color: #fff; text-transform: uppercase; font-weight: 600;`, 
         ...data
       );
     }  
