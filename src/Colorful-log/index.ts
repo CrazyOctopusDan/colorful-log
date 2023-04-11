@@ -1,7 +1,7 @@
 // 常量
 import { VUE_DEEP_CYAN, VUE_BLUE_GRAY } from '../styles';
 // Type定义
-import { IColorfulLogConfig, IBlockLogClass, ColorType, UsageType } from '../types'
+import { IColorfulLogConfig, IBlockLogClass, IBasicConfig, ICoBasicConfig } from '../types'
   
   const colorMap = new Map([
     ['yellow', '#FFC107'],
@@ -44,7 +44,7 @@ import { IColorfulLogConfig, IBlockLogClass, ColorType, UsageType } from '../typ
    * @param {string} logName log 第二个按钮中的文字内容
    * @param {any} data 这里的 data 可以传多个 以 rest 参数形式会被展开
    */
-  export const colorfulLog = ({usage = 'log', logBy = '', logName = 'log'}: {usage?: UsageType, logBy?: string, logName?: string}, ...logData: any[]) => {
+  export const colorfulLog = ({usage = 'log', logBy = '', logName = 'log'}: IBasicConfig, ...logData: any[]) => {
     return console[usage](
       `%c log-by-${getLogBy(logBy)} %c ${logName} %c`,
       `background: ${VUE_DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`,
@@ -62,7 +62,7 @@ import { IColorfulLogConfig, IBlockLogClass, ColorType, UsageType } from '../typ
    * - config.isLinearGradient 是否是渐变按钮
    * @param {any} data 这里的 data 可以传多个 以 rest 参数形式会被展开
    */
-  export const materialColorfulLog = ({usage = 'log', logBy = '', logName = 'log', color = 'blue', isLinearGradient = true }: {usage?: UsageType, logBy?: string, logName?: string, color?: ColorType, isLinearGradient?: boolean}, ...data: any[]) => {
+  export const materialColorfulLog = ({usage = 'log', logBy = '', logName = 'log', color = 'blue', isLinearGradient = true }: ICoBasicConfig, ...data: any[]) => {
     if (isLinearGradient) {
       console[usage](
         `%c log-by-${getLogBy(logBy)} %c${logName}`,
