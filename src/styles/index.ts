@@ -1,6 +1,6 @@
 // vue-devtool
-export const VUE_DEEP_CYAN = "#41b883";
-export const VUE_BLUE_GRAY = "#35495e";
+export const DEEP_CYAN = "#41b883";
+export const BLUE_GRAY = "#35495e";
 
 // arco-design
 export const ARCO_DEEP_BLUE = "#1f5bfb";

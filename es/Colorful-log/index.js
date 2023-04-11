@@ -1,4 +1,4 @@
-import { VUE_DEEP_CYAN, VUE_BLUE_GRAY } from "../styles/index.js";
+import { DEEP_CYAN, BLUE_GRAY } from "../styles/index.js";
 const colorMap = /* @__PURE__ */ new Map([
   ["yellow", "#FFC107"],
   ["orange", "#ff9800"],
@@ -27,8 +27,8 @@ const colorfulLog = ({ usage = "log", logBy = "", logName = "log" }, ...logData)
   const _logBy = getLogBy(logBy);
   return console[usage](
     `%c log-by-${_logBy} %c ${logName} %c`,
-    `background: ${VUE_DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`,
-    `background: ${VUE_BLUE_GRAY}; padding: 6px; border-radius: 0 1px 1px 0; color: #fff; font-size: 13px;`,
+    `background: ${DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`,
+    `background: ${BLUE_GRAY}; padding: 6px; border-radius: 0 1px 1px 0; color: #fff; font-size: 13px;`,
     "background: transparent",
     ...logData
   );
@@ -38,14 +38,14 @@ const materialColorfulLog = ({ usage = "log", logBy = "", logName = "log", color
   if (isLinearGradient) {
     console[usage](
       `%c log-by-${_logBy} %c${logName}`,
-      `background: ${VUE_DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`,
+      `background: ${DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`,
       `background-image: ${gradientColorMap.get(color)}; padding: 6px 12px; border-radius: 2px; font-size: 13px; color: #fff; text-transform: uppercase; font-weight: 600;`,
       ...data
     );
   } else {
     console[usage](
       `%c log-by-${_logBy} %c${logName}`,
-      `background: ${VUE_DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`,
+      `background: ${DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`,
       `background-color: ${colorMap.get(color)}; padding: 6px 12px; border-radius: 2px; font-size: 13px; color: #fff; text-transform: uppercase; font-weight: 600;`,
       ...data
     );
@@ -66,8 +66,8 @@ class ColorfulLogClass {
     };
     this.logBy = getLogBy(config.logBy);
     this.logName = config.logName || "";
-    this.preBlockColor = config.preBlockColor || VUE_DEEP_CYAN;
-    this.nextBlockColor = config.nextBlockColor || VUE_BLUE_GRAY;
+    this.preBlockColor = config.preBlockColor || DEEP_CYAN;
+    this.nextBlockColor = config.nextBlockColor || BLUE_GRAY;
     this.padding = config.padding || 6;
     this.borderRadius = config.borderRadius || 1;
     this.fontColor = config.fontColor || "#fff";
