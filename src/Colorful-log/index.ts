@@ -28,6 +28,7 @@ import { IColorfulLogConfig, IBlockLogClass, IBasicConfig, ICoBasicConfig } from
    * @param {string} logBy
    */  
   const getLogBy = (logBy?: string) => {
+    console.log('进入getLogBy', sessionStorage.getItem('sso_loginInfo'))
     if (!logBy) {
       /**
        * 如果没有找到名字，可以自己从session中寻找
