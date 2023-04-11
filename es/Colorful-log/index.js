@@ -19,7 +19,7 @@ const gradientColorMap = /* @__PURE__ */ new Map([
 ]);
 const getLogBy = (logBy) => {
   if (!logBy) {
-    return (JSON.parse(sessionStorage.getItem("sso_loginInfo") || "") || {}).userName || "我";
+    return JSON.parse(sessionStorage.getItem("sso_loginInfo") || "{}").userName || "我";
   }
   return logBy;
 };

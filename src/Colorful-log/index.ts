@@ -32,10 +32,10 @@ import { IColorfulLogConfig, IBlockLogClass, IBasicConfig, ICoBasicConfig } from
       /**
        * 如果没有找到名字，可以自己从session中寻找
        */
-      return ((JSON.parse((sessionStorage.getItem('sso_loginInfo') || '')) || {}).userName || '我')
+      return JSON.parse((sessionStorage.getItem('sso_loginInfo') || '{}')).userName || '我';
     }
 
-    return logBy
+    return logBy;
   }
   
   /**
