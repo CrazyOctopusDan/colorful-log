@@ -17,18 +17,38 @@ const gradientColorMap = /* @__PURE__ */ new Map([
   ["blue", "linear-gradient(to right, #2196F3, #4FC3F7)"],
   ["purple", "linear-gradient(to right, #DA22FF, #9733EE)"]
 ]);
-const colorfulLog = (logBy = "", logName = "", ...logData) => console.log(
-  `%c log-by-${logBy} %c ${logName} %c`,
-  `background: ${VUE_DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px;  color: #fff`,
-  `background: ${VUE_BLUE_GRAY}; padding: 6px; border-radius: 0 1px 1px 0;  color: #fff`,
-  "background: transparent",
-  ...logData
-);
-const materialColorfulLog = ({ logName = "", type = "blue", isLinearGradient = false }, ...data) => {
+const getLogBy = (logBy) => {
+  if (!logBy) {
+    return (JSON.parse(sessionStorage.getItem("sso_loginInfo") || "") || {}).userName || "我";
+  }
+  return logBy;
+};
+const colorfulLog = ({ usage = "log", logBy = "", logName = "log" }, ...logData) => {
+  logBy = getLogBy(logBy);
+  return console[usage](
+    `%c log-by-${logBy} %c ${logName} %c`,
+    `background: ${VUE_DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`,
+    `background: ${VUE_BLUE_GRAY}; padding: 6px; border-radius: 0 1px 1px 0; color: #fff; font-size: 13px;`,
+    "background: transparent",
+    ...logData
+  );
+};
+const materialColorfulLog = ({ usage = "log", logBy = "", logName = "log", color = "blue", isLinearGradient = true }, ...data) => {
+  logBy = getLogBy(logBy);
   if (isLinearGradient) {
-    console.log(`%c${logName}`, `background-image: ${gradientColorMap.get(type)}; padding: 6px 12px; border-radius: 2px; font-size: 14px; color: #fff; text-transform: uppercase; font-weight: 600;`, ...data);
+    console[usage](
+      `%c log-by-${logBy} %c${logName}`,
+      `background: ${VUE_DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`,
+      `background-image: ${gradientColorMap.get(color)}; padding: 6px 12px; border-radius: 2px; font-size: 14px; color: #fff; text-transform: uppercase; font-weight: 600;`,
+      ...data
+    );
   } else {
-    console.log(`%c${logName}`, `background-color: ${colorMap.get(type)}; padding: 6px 12px; border-radius: 2px; font-size: 14px; color: #fff; text-transform: uppercase; font-weight: 600;`, ...data);
+    console[usage](
+      `%c log-by-${logBy} %c${logName}`,
+      `background: ${VUE_DEEP_CYAN}; padding: 6px; border-radius: 1px 0 0 1px; color: #fff; font-size: 13px;`,
+      `background-color: ${colorMap.get(color)}; padding: 6px 12px; border-radius: 2px; font-size: 14px; color: #fff; text-transform: uppercase; font-weight: 600;`,
+      ...data
+    );
   }
 };
 class ColorfulLogClass {
@@ -44,7 +64,7 @@ class ColorfulLogClass {
         ...data
       );
     };
-    this.logBy = config.logBy || "";
+    this.logBy = getLogBy(config.logBy);
     this.logName = config.logName || "";
     this.preBlockColor = config.preBlockColor || VUE_DEEP_CYAN;
     this.nextBlockColor = config.nextBlockColor || VUE_BLUE_GRAY;
